@@ -6,8 +6,8 @@
     --color-light-gray: #f4f4f4;
     --color-dark-gray: #333333;
     --font-family: 'Poppins', sans-serif;
-    --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
-    --shadow-bold: 0 8px 25px rgba(0, 0, 0, 0.15);
+    --shadow-light: 0 5px 20px rgba(0, 0, 0, 0.1); /* Deeper shadow for "floating" effect */
+    --shadow-bold: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 * {
@@ -32,7 +32,7 @@ body {
 }
 
 .section-padding {
-    padding: 100px 0; /* Increased padding for better spacing */
+    padding: 100px 0;
 }
 
 .bg-light-gray {
@@ -61,7 +61,7 @@ body {
 
 /* Typography */
 h1 {
-    font-size: 3.8rem; /* Slightly smaller and cleaner */
+    font-size: 3.8rem;
     font-weight: 700;
     margin-bottom: 25px;
     letter-spacing: 2px;
@@ -83,12 +83,12 @@ h3 {
 /* Buttons */
 .btn {
     display: inline-block;
-    padding: 15px 40px; /* Larger button */
+    padding: 15px 40px;
     font-weight: 600;
     text-decoration: none;
-    border-radius: 50px; /* Pill shape for modern look */
-    transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
-    border: 2px solid var(--color-primary); /* Defined border */
+    border-radius: 50px;
+    transition: all 0.3s;
+    border: 2px solid var(--color-primary);
     cursor: pointer;
 }
 
@@ -101,7 +101,7 @@ h3 {
 .btn-primary:hover {
     background-color: var(--color-black);
     color: var(--color-primary);
-    transform: translateY(-3px);
+    transform: scale(1.05); /* Zoom effect on hover */
     box-shadow: var(--shadow-bold);
 }
 
@@ -110,9 +110,9 @@ h3 {
     position: sticky;
     top: 0;
     background-color: var(--color-white);
-    border-bottom: 1px solid var(--color-light-gray);
+    border-bottom: 1px solid var(--color-dark-gray); /* Stronger bottom line for framing */
     z-index: 1000;
-    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.08); /* More defined shadow */
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.08);
 }
 
 .nav-content {
@@ -123,7 +123,7 @@ h3 {
 }
 
 .logo img {
-    height: 60px; /* Corrected, balanced logo size */
+    height: 80px;
     transition: transform 0.3s;
 }
 
@@ -140,16 +140,16 @@ nav ul li a {
     text-decoration: none;
     color: var(--color-black);
     font-weight: 500;
-    transition: color 0.3s;
+    transition: color 0.3s, border-color 0.3s;
     padding: 5px 0;
     position: relative;
-    text-transform: uppercase; /* Clean look */
+    text-transform: uppercase;
 }
 
 nav ul li a::after {
     content: '';
     position: absolute;
-    bottom: -5px; /* Moved line down */
+    bottom: -5px;
     left: 0;
     width: 0;
     height: 2px;
@@ -169,29 +169,43 @@ nav ul li a:hover::after {
 nav ul li a.cta-link {
     color: var(--color-primary);
     font-weight: 700;
+    /* Framed button style for Contact link */
+    border: 1px solid var(--color-primary); 
+    padding: 8px 15px;
+    border-radius: 4px;
+}
+nav ul li a.cta-link:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
 }
 
-/* Hero Section */
+
+/* --- CREATIVE ENHANCEMENT: Hero Section --- */
 .hero {
-    /* Background can be set to a B&W image in index.html, but keeping it white/minimal here */
-    background: var(--color-white); 
+    /* Subtle Black to Transparent Overlay (like a camera lens filter) */
+    background: linear-gradient(rgba(0,0,0,0.05), rgba(255,255,255,1)), var(--color-white); 
     padding: 150px 0;
     text-align: center;
-    min-height: 80vh; /* Taller hero */
+    min-height: 85vh; 
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+.hero h1 {
+    font-size: 4.2rem; /* Larger hero text */
+    letter-spacing: 5px; /* Wider, more striking text */
+}
+
 .hero-subtext {
     font-size: 1.3rem;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto 50px;
     font-weight: 300;
     color: var(--color-dark-gray);
 }
 
-/* --- MOTION GRAPHICS: Why SkyBee? Section --- */
+/* --- CREATIVE ENHANCEMENT: Why SkyBee? Section (Viewfinder Grid) --- */
 .value-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -200,31 +214,32 @@ nav ul li a.cta-link {
 }
 
 .value-item {
-    padding: 40px 30px; /* Increased padding */
+    padding: 40px 30px;
     background-color: var(--color-white);
-    border-radius: 12px;
+    border-radius: 0; /* Boxy, framed look */
     box-shadow: var(--shadow-light);
-    border: 1px solid var(--color-light-gray);
+    border: 2px solid var(--color-dark-gray); /* Bold border for framing */
     transition: transform 0.4s, box-shadow 0.4s;
     position: relative;
     overflow: hidden; 
 }
 
-/* Subtle continuous glow on hover for a "motion graphic" feel */
 .value-item:hover {
-    transform: translateY(-8px); /* Deeper lift */
+    transform: scale(1.03); /* Subtle zoom */
     box-shadow: var(--shadow-bold);
-    /* You could uncomment the animation below for a pulsing effect, but simple lift/shadow is cleaner */
-    /* animation: pulseGlow 2s infinite alternate; */
+    border-color: var(--color-primary); /* Blue frame on hover */
 }
 
-/* @keyframes pulseGlow {
-    0% { box-shadow: 0 0 5px rgba(0, 123, 255, 0.4); }
-    100% { box-shadow: 0 0 15px rgba(0, 123, 255, 0.8); }
-} */
+.value-item .icon {
+    display: block;
+    font-size: 3.5rem; /* Larger numbers */
+    font-weight: 700;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
 
 
-/* Services Section */
+/* --- CREATIVE ENHANCEMENT: Services Section (Film Strip Accent) --- */
 .services-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -233,24 +248,34 @@ nav ul li a.cta-link {
 
 .service-card {
     padding: 30px;
-    /* Redesigned blue accent line: thicker and rounded */
-    border-left: 8px solid var(--color-primary); 
+    /* Redesigned accent to look like a thick film edge */
+    border: 1px solid var(--color-light-gray);
     background-color: var(--color-light-gray);
-    border-radius: 12px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-    transition: background-color 0.3s, transform 0.3s;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.5s, box-shadow 0.5s;
+    transform-origin: top left; /* Pivot point for 3D effect */
 }
 
 .service-card:hover {
-    background-color: #e8e8e8;
-    transform: translateX(5px); /* Subtle slide on hover */
+    background-color: var(--color-white);
+    transform: rotate(1deg) scale(1.02); /* Subtle skew and lift */
+    box-shadow: var(--shadow-bold);
+    /* Add a blue line to the top on hover for a dynamic accent */
+    border-top: 5px solid var(--color-primary); 
 }
+
+.service-card h3 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 
 /* About Us Section */
 .about-grid {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
-    gap: 70px; /* Wider gap */
+    gap: 70px;
     align-items: center;
 }
 
@@ -270,26 +295,32 @@ nav ul li a.cta-link {
     padding: 30px;
     margin-bottom: 25px;
     border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Dark section shadow */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); 
 }
 
-/* Contact Section */
+/* Contact Section - Clean and framed */
 .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1.2fr; /* Form is slightly wider */
+    grid-template-columns: 1fr 1.2fr;
     gap: 80px;
-}
-
-.contact-details a:hover {
-    color: var(--color-primary);
 }
 
 .contact-form input,
 .contact-form textarea,
 .contact-form select {
-    padding: 14px; /* Larger inputs */
+    padding: 14px;
     margin-bottom: 20px;
     border-radius: 4px;
+    border: 1px solid var(--color-dark-gray); /* Framed input */
+    transition: border-color 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
 }
 
 /* Footer */
@@ -306,15 +337,7 @@ footer {
     align-items: center;
 }
 
-.footer-links a:hover {
-    color: var(--color-primary);
-}
-
-.social-icons a:hover {
-    color: var(--color-primary);
-}
-
-/* --- Responsive Design (Mobile) --- */
+/* Responsive Design */
 @media (max-width: 768px) {
     h1 { font-size: 2.5rem; }
     h2 { font-size: 2rem; }
@@ -326,10 +349,5 @@ footer {
     /* Convert all grids to a single column */
     .value-grid, .services-list, .about-grid, .contact-grid {
         grid-template-columns: 1fr;
-    }
-    
-    .footer-content {
-        flex-direction: column;
-        gap: 20px;
     }
 }
