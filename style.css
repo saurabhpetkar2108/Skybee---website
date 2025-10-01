@@ -118,11 +118,10 @@ h3 {
     align-items: center;
     padding: 15px 20px;
 }
-.logo img {
-    
-    height: 40px; /* Adjust as needed */
-    transition: transform 0.3s;
 
+.logo img {
+    height: 60px; /* Adjusted to a standard, balanced size */
+    transition: transform 0.3s;
 }
 
 nav ul {
