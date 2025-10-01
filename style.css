@@ -1,0 +1,406 @@
+/* Base Styling & Variables */
+:root {
+    --color-primary: #007bff; /* Primary Blue Accent */
+    --color-black: #1a1a1a;
+    --color-white: #ffffff;
+    --color-light-gray: #f4f4f4;
+    --color-dark-gray: #333333;
+    --font-family: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--color-black);
+    background-color: var(--color-white);
+    scroll-behavior: smooth; /* Smooth scrolling for navigation links */
+}
+
+/* Utility Classes */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+.bg-light-gray {
+    background-color: var(--color-light-gray);
+}
+
+.bg-dark-gray {
+    background-color: var(--color-dark-gray);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-white {
+    color: var(--color-white);
+}
+
+.color-blue {
+    color: var(--color-primary) !important;
+}
+
+/* Typography */
+h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 40px;
+    color: var(--color-black);
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+/* Smooth hover animation for CTA button */
+.btn-primary:hover {
+    background-color: var(--color-black);
+    color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Header & Navigation */
+.sticky-nav {
+    position: sticky;
+    top: 0;
+    background-color: var(--color-white);
+    border-bottom: 1px solid var(--color-light-gray);
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.logo img {
+    height: 40px; /* Adjust as needed */
+    transition: transform 0.3s;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--color-black);
+    font-weight: 500;
+    transition: color 0.3s;
+    padding: 5px 0;
+    position: relative;
+}
+
+/* Underline animation for menu links */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: width 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.cta-link:hover {
+    color: var(--color-primary);
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li a.cta-link {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+/* Hero Section */
+.hero {
+    /* Use a simple black/white gradient or abstract image here */
+    background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('hero-placeholder.jpg') no-repeat center center/cover;
+    padding: 150px 0;
+    text-align: center;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero h1 {
+    font-size: 4rem;
+}
+
+.hero-subtext {
+    font-size: 1.4rem;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    font-weight: 300;
+}
+
+/* Why SkyBee? Section */
+.value-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    text-align: center;
+}
+
+.value-item {
+    padding: 30px;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover animation for value cards */
+.value-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.value-item .icon {
+    display: block;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* Services Section */
+.services-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.service-card {
+    padding: 30px;
+    /* Blue accent line */
+    border-left: 4px solid var(--color-primary); 
+    background-color: var(--color-light-gray);
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    transition: background-color 0.3s;
+}
+
+.service-card:hover {
+    background-color: #e8e8e8;
+}
+
+/* About Us Section */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-narrative h2 {
+    margin-top: 0;
+    color: var(--color-white);
+}
+
+.about-narrative p {
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 20px;
+}
+
+.mv-card {
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle white overlay on dark gray */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.mv-card h3 {
+    margin-top: 0;
+}
+
+/* Contact Section */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.contact-info h2 {
+    margin-top: 0;
+}
+
+.contact-details p {
+    margin-bottom: 5px;
+}
+
+.contact-details a {
+    color: var(--color-black);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-details a:hover {
+    color: var(--color-primary);
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid var(--color-light-gray);
+    border-radius: 4px;
+    font-family: inherit;
+    transition: border-color 0.3s;
+}
+
+/* Blue focus border for input fields */
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+    border-color: var(--color-primary);
+    outline: none;
+}
+
+/* Footer */
+footer {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    padding: 40px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-links a {
+    color: var(--color-white);
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--color-primary);
+}
+
+.social-icons a {
+    color: var(--color-white);
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.social-icons a:hover {
+    color: var(--color-primary);
+}
+
+/* --- Responsive Design (Mobile) --- */
+@media (max-width: 768px) {
+    .nav-content {
+        flex-direction: column;
+        padding: 15px 20px;
+    }
+    
+    nav ul {
+        margin-top: 10px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    nav ul li {
+        margin: 5px 15px;
+    }
+
+    .hero {
+        padding: 100px 0;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtext {
+        font-size: 1.1rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    /* Convert all grids to a single column */
+    .value-grid, .services-list, .about-grid, .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .value-item {
+        margin-bottom: 20px;
+    }
+
+    .about-narrative {
+        text-align: center;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
